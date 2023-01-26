@@ -1,0 +1,87 @@
+.NavBar {
+  background: black;
+  height: 60px;
+  display: flex;
+}
+
+.NavBar > header {
+  padding: 20px;
+  font-size: 20px;
+  font-family: monospace;
+  color: white;
+}
+
+.NavBar > header:hover {
+  background: white;
+  color: black;
+  cursor: grab;
+}
+
+.selectors {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  column-gap: 20px;
+}
+
+.rectangle {
+  font-size: 20px;
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  width: 200px;
+  height: 75px;
+  border: 1px black solid;
+  border-radius: 20px;
+}
+
+.rectangle:hover {
+  color: white;
+  background-color: black;
+  cursor: grab;
+}
+
+.button {
+  align-self: center;
+  text-align: center;
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  font-size: 25px;
+  width: 250px;
+  height: 50px;
+  border: 1px black solid;
+}
+
+.button:hover {
+  color: white;
+  background-color: black;
+  cursor: grab;
+}
+
+.pointInput {
+  padding: 10px;
+  text-align: center;
+  font-size: 15px;
+  width: 100px;
+  border: 1px solid black;
+  border-radius: 20px;
+}
+
+.weightSlider {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  row-gap: 10px;
+}
+
+.function {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.label {
+  color: black;
+}
