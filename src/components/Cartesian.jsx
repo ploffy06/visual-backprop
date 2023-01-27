@@ -1,6 +1,9 @@
 import React, { useRef, useEffect } from "react";
 import * as d3 from 'd3';
-
+/**
+ *
+ * The following is deprecated as we are now using function-plot
+ */
 const Cartesian = ({x, y}) => {
     const d3Container = useRef(null);
 
@@ -59,8 +62,8 @@ const Cartesian = ({x, y}) => {
         <svg
             ref={d3Container}
             className="d3-component"
-            height={400}
-            width={400}
+            height="100%"
+            width="100%"
         />
     )
 }

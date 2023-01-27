@@ -1,36 +1,51 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import WeightSlider from "./WeightSlider";
-import * as d3 from 'd3';
-import Cartesian from "./Cartesian";
+import functionPlot from "function-plot";
 
 const Sigmoid = ({x, y}) => {
-    const [weight, setWeight] = useState(0);
-    const prac = useRef(null);
+    const [weight, setWeight] = useState(1.000);
+    const sigmoid = `1 / (1 + exp(-${weight} * x))`
     useEffect(
         () => {
-            const svg = d3.select(prac.current);
+            const sigmoidFunction = functionPlot({
+                target: ".functionCurve",
+                width: "750",
+                height: "500",
+                yAxis: { domain: [-0.5, 1.5] },
+                xAxis: { range: [ -5, 5] },
+                grid: true,
+                data: [
+                    {
+                        // x: `${x}`,
+                        points: [[x, y], [x, y], [x, y]],
+                        fnType: "points",
+                        graphType: "scatter",
+                        color: "red"
+                    },
+                    {
+                        fn: `2(x - ${x}) * (x - ${x})+ 25(y - ${y}) * (y - ${y}) - 0.005`,
+                        fnType: "implicit",
+                        color: "red"
+                    },
+                    {
+                        fn: sigmoid,
+                        derivative: {
+                            fn: `(${sigmoid} - ${y}) * ${sigmoid} * (1 - ${sigmoid}) * x`,
+                            x0: x
+                        },
+                        color: "blue"
+                    }
 
+                ]
+            })
 
-            // Point
-            svg.append("circle")
-                .attr("fill", "black")
-                .attr("r", 10) // radius of the
-                .attr("cx", (200))
-                .attr("cy", (200))
-
-
-
-        }, [prac.current])
+        }, [weight])
     return (
         <div className="function">
             <div style={{paddingBottom: "20px"}}>
                 Selected point ({x}, {y})
             </div>
-            <div >
-            </div>
-            <svg ref={prac} width={400} height={400}>
-                <Cartesian x={x} y={y}/>
-            </svg>
+            <div className="functionCurve"></div>
             <WeightSlider weight={weight} setWeight={setWeight}/>
         </div>
     )

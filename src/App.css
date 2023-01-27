@@ -82,6 +82,19 @@
   align-items: center;
 }
 
-.label {
-  color: black;
+.xyContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 20px;
+  font-size: 15px;
+}
+
+.About {
+  padding-left: 75px;
+  padding-right: 75px;
+}
+
+.About > p {
+  font-size: 20px;
 }

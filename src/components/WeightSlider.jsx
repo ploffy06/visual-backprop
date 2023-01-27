@@ -7,11 +7,11 @@ const WeightSlider = ({weight, setWeight}) => {
             <Slider
                 aria-label="Small steps"
                 defaultValue={0}
-                step={0.01}
-                min={-20}
-                max={20}
+                step={0.00001}
+                min={-5}
+                max={5}
                 valueLabelDisplay="auto"
-                style={{width: "500px"}}
+                style={{width: "700px"}}
                 value={weight}
                 onChange={e => setWeight(e.target.value)}
                 />

@@ -3,6 +3,7 @@ import NavBar from "../components/NavBar";
 import '../App.css';
 import Tanh from "../components/Tanh";
 import Sigmoid from "../components/Sigmoid";
+import Slider from '@mui/material/Slider';
 
 const Home = () => {
     const [chosen, setChosen] = useState({
@@ -67,19 +68,33 @@ const Home = () => {
                     </div>
                 </div>
                 <header>Set target point</header>
-                <div style={{fontSize: "15px", textAlign: "center", color: "red"}}>Points must be within the domain and range of -20 to 20</div>
-                <form className="selectors">
-                    <input
-                        placeholder="X"
-                        className="pointInput"
-                        type="text"
-                        onChange={(e) => setX(e.target.value)}
+                <form className="xyContainer">
+                    <div style={{fontSize: "15px", textAlign: "center", color: "red"}}>Note: Domain of sigmoid function must be within the domain of 0 to 1</div>
+                    <div >
+                        x = {x}
+                    </div>
+                    <Slider
+                        aria-label="Small steps"
+                        defaultValue={0}
+                        step={0.01}
+                        min={-5}
+                        max={5}
+                        valueLabelDisplay="auto"
+                        style={{width: "200px"}}
+                        value={x}
+                        onChange={e => setX(e.target.value)}
                     />
-                    <input
-                        placeholder="Y"
-                        className="pointInput"
-                        type="text"
-                        onChange={(e) => setY(e.target.value)}
+                    y = {y}
+                    <Slider
+                        aria-label="Small steps"
+                        defaultValue={0}
+                        step={0.01}
+                        min={-1}
+                        max={1}
+                        valueLabelDisplay="auto"
+                        style={{width: "200px"}}
+                        value={y}
+                        onChange={e => setY(e.target.value)}
                     />
                 </form>
                 <div className="selectors" style={{padding: "40px"}}>
