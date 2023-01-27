@@ -68,6 +68,12 @@ const About = () => {
                 <p>
                     dL/dw = (A - t)(1 - A<sup>2</sup>)x
                 </p>
+                <p>
+                    What you may of noticed with this function is that dL/dw will flatten
+                    out towards the tails of the function. This is one of the disadvantages
+                    of using tanh and so the reason as to why weight initialization is important.
+                    Otherwise, you will end up with the exploding gradient problem!
+                </p>
             </div>
         </div>
     )
