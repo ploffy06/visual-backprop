@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import NavBar from "../components/NavBar";
 import '../App.css';
 import Tanh from "../components/Tanh";
+import Sigmoid from "../components/Sigmoid";
 
 const Home = () => {
     const [chosen, setChosen] = useState({
@@ -106,6 +107,12 @@ const Home = () => {
             <div className="Home">
                 <NavBar />
                 <header>Sigmoid</header>
+                <Sigmoid x={x} y={y}/>
+                <div className="selectors" style={{padding: "40px"}}>
+                    <div className="button" onClick={() => setDefault()}>
+                        Restart
+                    </div>
+                </div>
             </div>
         )
     } else {

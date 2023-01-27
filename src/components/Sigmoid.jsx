@@ -3,33 +3,20 @@ import WeightSlider from "./WeightSlider";
 import * as d3 from 'd3';
 import Cartesian from "./Cartesian";
 
-const Tanh = ({x, y}) => {
+const Sigmoid = ({x, y}) => {
     const [weight, setWeight] = useState(0);
     const prac = useRef(null);
     useEffect(
         () => {
             const svg = d3.select(prac.current);
 
-            const C = 1;
-            const xScale = d3.scaleLinear()
-                .domain([0, 100])
-                .range([0, 1000]); // pixels
 
-            const yScale = d3.scaleLinear()
-                .domain([0, 100])
-                .range([0, 1000]);
-
-            const line = d3.line()
-                        .x(d => xScale(d))
-                        .y(d => yScale(Math.log(C) + Math.log(d)));
-
-            const values = [0, 50, 100];
-
-            svg.append("g")
-                .datum(values)
+            // Point
+            svg.append("circle")
                 .attr("fill", "black")
-                .attr("stroke", "steelblue")
-                .attr("d", line);
+                .attr("r", 10) // radius of the
+                .attr("cx", (200))
+                .attr("cy", (200))
 
 
 
@@ -49,4 +36,4 @@ const Tanh = ({x, y}) => {
     )
 }
 
-export default Tanh;
+export default Sigmoid;
