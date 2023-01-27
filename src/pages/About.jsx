@@ -31,6 +31,7 @@ const About = () => {
                 </p>
                 <h1>Backpropgating with sigmoid</h1>
                 <p>Let sigmoid(x) = 1 / (1 + exp(-x))</p>
+                <p>Then the derivative of this would be sigmoid(x)(1 - sigmoid(x))</p>
                 <p>
                     Then the equation that defines our network will be A = sigmoid(wx) where w is the weight.
                     And so by applying the chain rule we have,
@@ -58,6 +59,14 @@ const About = () => {
                     You will also realise that when the gradient of dL/dw is positive (we can tell by noting the direction
                     of the line), then to we will need to decrease our weight.
                     Similar applies for when this gradient is negative. Why is this?
+                </p>
+                <h1>Backpropagating with Tanh</h1>
+                <p>
+                    Similarly, with tanh, the derivative of that would be (1 - tanh(x)<sup>2</sup>).
+                    By letting A = tanh(wx) and applying the chain rule we have,
+                </p>
+                <p>
+                    dL/dw = (A - t)(1 - A<sup>2</sup>)x
                 </p>
             </div>
         </div>
